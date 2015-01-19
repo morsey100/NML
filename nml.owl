@@ -1,0 +1,1201 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY geo "http://www.w3.org/2003/01/geo/wgs84_pos#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#"
+     xml:base="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#">
+        <rdfs:label xml:lang="en">NML Schema new version</rdfs:label>
+        <owl:versionInfo>2.0</owl:versionInfo>
+        <dc:creator xml:lang="en">SNE Group, University of Amsterdam</dc:creator>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/date -->
+
+    <owl:AnnotationProperty rdf:about="&dc;date"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="&dc;description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#alt -->
+
+    <owl:AnnotationProperty rdf:about="&geo;alt">
+        <rdfs:label>altitude</rdfs:label>
+        <rdfs:comment>The WGS84 altitude of a SpatialThing (decimal meters 
+above the local reference ellipsoid).</rdfs:comment>
+        <rdfs:domain rdf:resource="&geo;SpatialThing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#lat -->
+
+    <owl:AnnotationProperty rdf:about="&geo;lat">
+        <rdfs:label>latitude</rdfs:label>
+        <rdfs:comment>The WGS84 latitude of a SpatialThing (decimal degrees).</rdfs:comment>
+        <rdfs:domain rdf:resource="&geo;SpatialThing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+    <owl:AnnotationProperty rdf:about="&geo;location">
+        <rdfs:label>location</rdfs:label>
+        <rdfs:comment>The relation between something and the point, 
+ or other geometrical thing in space, where it is.  For example, the realtionship between
+ a radio tower and a Point with a given lat and long.
+ Or a relationship between a park and its outline as a closed arc of points, or a road and
+ its location as a arc (a sequence of points).
+ Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
+ an accuracy appropriate for the size of the object and uses such as mapping .
+ </rdfs:comment>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#long -->
+
+    <owl:AnnotationProperty rdf:about="&geo;long">
+        <rdfs:label>longitude</rdfs:label>
+        <rdfs:comment>The WGS84 longitude of a SpatialThing (decimal degrees).</rdfs:comment>
+        <rdfs:domain rdf:resource="&geo;SpatialThing"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/based_near -->
+
+    <owl:AnnotationProperty rdf:about="&foaf;based_near"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#adaptationFunction -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#adaptationFunction">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#AdaptationFunction"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#AdaptationService"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#DeadaptationService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#address -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#address">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdfs:label xml:lang="en">Address</rdfs:label>
+        <rdfs:comment xml:lang="en">It is a vCard ADR (address) property</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Location"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#belongsToList -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#belongsToList">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Belongs to list</rdfs:label>
+        <rdfs:comment xml:lang="en">Relates a ListItem to the OrderedList to which it belongs</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+        <owl:inverseOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#canProvidePort -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#canProvidePort">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">can provide port</rdfs:label>
+        <rdfs:comment xml:lang="en">Relate an AdaptationService or DeadaptationService to one or more Ports or PortGroups to define that these can be created by that AdaptationService or DeadaptationService</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#encoding -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#encoding">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Encoding</rdfs:label>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Encoding"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#SwitchingService"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#existsDuring -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#existsDuring">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">Exists during</rdfs:label>
+        <rdfs:comment xml:lang="en">It relates one Network Object object to zero or more LifeTime objects</rdfs:comment>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Lifetime"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasInboundPort -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasInboundPort">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">Has inbound port</rdfs:label>
+        <rdfs:comment xml:lang="en">Relates a Node, a SwitchingService or a Topology to their respective Ports or PortGroups</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasItem -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasItem">
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdfs:label xml:lang="en">Has item</rdfs:label>
+        <rdfs:comment xml:lang="en">Relates an OrderedList to one of its items</rdfs:comment>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#OrderedList"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasLabel -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasLabel">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;InverseFunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">Has label</rdfs:label>
+        <rdfs:comment xml:lang="en">Assigns a label to a Port or a PortGroup</rdfs:comment>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Label"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasLabelGroup -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasLabelGroup">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">Has label group</rdfs:label>
+        <rdfs:comment xml:lang="en">Assigns a LabelGroup to PortGroup or LinkGroup</rdfs:comment>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelGroup"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasLink -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasLink">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">Has link</rdfs:label>
+        <rdfs:comment xml:lang="en">It is used for BidirectionalLink to relate it to exactly two Links or two LinkGroups.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasNode -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasNode">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">Has node</rdfs:label>
+        <rdfs:comment xml:lang="en">It relates a Topology to a Node, meaning that a Node is part of a Topology</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasOutboundPort -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasOutboundPort">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">Has outbound port</rdfs:label>
+        <rdfs:comment xml:lang="en">It relates a Node, SwitchingService or a Topology to one or more Ports
+or PortGroups</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasPort -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasPort">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasService -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasService">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasSinkNetworkObject -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasSinkNetworkObject">
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <owl:inverseOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isSink"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasSourceNetworkObject -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasSourceNetworkObject">
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <owl:inverseOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isSource"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasTopology -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasTopology">
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Topology"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#implementedBy -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#implementedBy">
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isAlias -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isAlias">
+        <rdf:type rdf:resource="&owl;SymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isSerialCompoundLink -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isSerialCompoundLink">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isSink -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isSink">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isSource -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isSource">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#labeltype -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#labeltype">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelType"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Label"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#locatedAt -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#locatedAt">
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Location"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#next -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#next">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label xml:lang="en">Next</rdfs:label>
+        <rdfs:comment xml:lang="en">This relation is a syntactical construct which may be used by syntaxes to construct a Ordered List</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#previous -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#previous">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+        <rdfs:range rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+        <owl:inverseOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#next"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#providesLink -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#providesLink">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#providesPort -->
+
+    <owl:ObjectProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#providesPort">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#location -->
+
+    <owl:ObjectProperty rdf:about="&geo;location">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:label>location</rdfs:label>
+        <rdfs:comment>The relation between something and the point, 
+ or other geometrical thing in space, where it is.  For example, the realtionship between
+ a radio tower and a Point with a given lat and long.
+ Or a relationship between a park and its outline as a closed arc of points, or a road and
+ its location as a arc (a sequence of points).
+ Clearly in practice there will be limit to the accuracy of any such statement, but one would expect
+ an accuracy appropriate for the size of the object and uses such as mapping .
+ </rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range rdf:resource="&geo;SpatialThing"/>
+        <rdfs:subPropertyOf rdf:resource="&foaf;based_near"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/based_near -->
+
+    <owl:ObjectProperty rdf:about="&foaf;based_near">
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#adaptationFunctionURI -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#adaptationFunctionURI">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#AdaptationFunction"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#encodingURI -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#encodingURI">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Encoding"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#end -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#end">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">end date and time</rdfs:label>
+        <rdfs:comment xml:lang="en">The end date and time formatted as ISO 8601 calendar date, and should be a basic (compact) representation with UTC timezone (YYYYMMDD Thhmmss Z)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Lifetime"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#labelSwapping -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#labelSwapping">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Label swapping</rdfs:label>
+        <rdfs:comment xml:lang="en">A value of false adds a restriction to the SwitchingService: it is only able to create cross connects from an inbound Port to an outbound Port if the Label of the connected Ports have the same value. The default value is false</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#SwitchingService"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#labelTypeURI -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#labelTypeURI">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelType"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#name -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#name">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Label</rdfs:label>
+        <rdfs:comment xml:lang="en">A human readable name</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Location"/>
+                    <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#noReturnTraffic -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#noReturnTraffic">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">No return traffic</rdfs:label>
+        <rdfs:comment xml:lang="en">A value of true changes the definition of Link to: data transport from each sources to all sinks, except that there is no data transport from a source to a sink if the source and sink are grouped together in a BidirectionalPort group. The default value of noReturnTraffic is false.</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#parameter -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#parameter">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#start -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#start">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">start date and time</rdfs:label>
+        <rdfs:comment xml:lang="en">The start date and time formatted as ISO 8601 calendar date, and should be a basic (compact) representation with UTC timezone (YYYYMMDD Thhmmss Z)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Lifetime"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#unlocode -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#unlocode">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">UN/LOCODE</rdfs:label>
+        <rdfs:comment xml:lang="en">The UN/LOCODE location identifier</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Location"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#value -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#value">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Value</rdfs:label>
+        <rdfs:comment xml:lang="en">It is one specific value taken from the labelset</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Label"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#values -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#values">
+        <rdfs:label xml:lang="en">Values</rdfs:label>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelGroup"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#version -->
+
+    <owl:DatatypeProperty rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#version">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label xml:lang="en">Version</rdfs:label>
+        <rdfs:comment xml:lang="en">A datetime representing the version (the most recent one is used)</rdfs:comment>
+        <rdfs:domain rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#AdaptationFunction -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#AdaptationFunction">
+        <rdfs:label xml:lang="en">Adaptation function</rdfs:label>
+        <rdfs:comment xml:lang="en">Adaptation technology identifier</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#AdaptationService -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#AdaptationService">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#BidirectionalLink -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#BidirectionalLink">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#BidirectionalPort -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#BidirectionalPort">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#DeadaptationService -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#DeadaptationService">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Encoding -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Encoding">
+        <rdfs:label xml:lang="en">Encoding</rdfs:label>
+        <rdfs:comment xml:lang="en">Network encoding</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Label -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Label">
+        <rdfs:label xml:lang="en">Label</rdfs:label>
+        <rdfs:comment xml:lang="en">A Label is the technology-specific value that distinguishes a single data stream (a channel)
+embedded in a larger data stream.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelGroup -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelGroup"/>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelType -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LabelType">
+        <rdfs:label xml:lang="en">Label type</rdfs:label>
+        <rdfs:comment xml:lang="en">Technology-specific labelset, e.g. a URI for VLANs</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Lifetime -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Lifetime"/>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isAlias"/>
+                <owl:allValuesFrom rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#ListItem"/>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Location -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Location">
+        <rdfs:label xml:lang="en">Location</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment xml:lang="en">Location of a network object</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#implementedBy"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isAlias"/>
+                <owl:allValuesFrom rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    <owl:Axiom>
+        <rdfs:comment xml:lang="en">This restriction is added because property &quot;implementedBy&quot; is reflexive</rdfs:comment>
+        <owl:annotatedSource rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <owl:annotatedProperty rdf:resource="&owl;equivalentClass"/>
+        <owl:annotatedTarget>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#implementedBy"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:annotatedTarget>
+    </owl:Axiom>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Node -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Node">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isAlias"/>
+                <owl:allValuesFrom rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Node"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#OrderedList -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#OrderedList">
+        <rdfs:label>Ordered list</rdfs:label>
+        <rdfs:comment>Represents an ordered list of Link or LinkGroup</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isAlias"/>
+                <owl:allValuesFrom rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#NetworkObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#isAlias"/>
+                <owl:allValuesFrom rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#SwitchingService -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#SwitchingService">
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+    </owl:Class>
+    
+
+
+    <!-- http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Topology -->
+
+    <owl:Class rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Topology">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#hasTopology"/>
+                <owl:hasSelf rdf:datatype="&xsd;boolean">true</owl:hasSelf>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#Point -->
+
+    <owl:Class rdf:about="&geo;Point">
+        <rdfs:label>point</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&geo;SpatialThing"/>
+        <rdfs:comment> 
+Uniquely identified by lat/long/alt. i.e.
+
+spaciallyIntersects(P1, P2) :- lat(P1, LAT), long(P1, LONG), alt(P1, ALT),
+  lat(P2, LAT), long(P2, LONG), alt(P2, ALT).
+
+sameThing(P1, P2) :- type(P1, Point), type(P2, Point), spaciallyIntersects(P1, P2).
+  </rdfs:comment>
+        <rdfs:comment>A point, typically described using a coordinate system relative to Earth, such as WGS84.
+  </rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing -->
+
+    <owl:Class rdf:about="&geo;SpatialThing">
+        <rdfs:label>SpatialThing</rdfs:label>
+        <rdfs:comment>Anything with spatial extent, i.e. size, shape, or position.
+ e.g. people, places, bowling balls, as well as abstract areas like cubes.
+</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="&geo;lat_long">
+        <rdfs:label>lat/long</rdfs:label>
+        <rdfs:comment>A comma-separated representation of a latitude, longitude coordinate.</rdfs:comment>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.w3.org/2003/01/geo/wgs84_pos#">
+        <rdfs:label>geo</rdfs:label>
+        <dc:title>WGS84 Geo Positioning: an RDF vocabulary</dc:title>
+        <dc:date>$Date: 2009/04/20 15:00:30 $</dc:date>
+        <rdfs:comment>
+Recent changes to this namespace:
+$Log: wgs84_pos.rdf,v $
+Revision 1.22  2009/04/20 15:00:30  timbl
+Remove the time bits which have been deal with elsewhere eg in iCal.
+
+Revision 1.21  2009/04/20 12:52:47  timbl
+try again
+
+Revision 1.20  2009/04/20 12:42:11  timbl
+Add Event (edited ages ago and never checked in), and location (following discussion http://chatlogs.planetrdf.com/swig/2009-04-20#T12-36-09)
+
+Revision 1.19  2009/04/20 12:36:31  timbl
+Add Event (edited ages ago and never checked in), and location (following discussion http://chatlogs.planetrdf.com/swig/2009-04-20#T12-36-09)
+
+Revision 1.18  2006/02/01 22:01:04  danbri
+Clarified that lat and long are decimal degrees, and that alt is decimal metres about local reference ellipsoid
+
+Revision 1.17  2004/02/06 17:38:12  danbri
+Fixed a bad commit screwup
+
+Revision 1.15  2003/04/19 11:24:08  danbri
+Fixed the typo even more.
+
+Revision 1.14  2003/04/19 11:16:56  danbri
+fixed a typo
+
+Revision 1.13  2003/02/19 22:27:27  connolly
+relaxed domain constraints on lat/long/alt from Point to SpatialThing
+
+Revision 1.12  2003/01/12 01:41:41  danbri
+Trying local copy of XSLT doc.
+
+Revision 1.11  2003/01/12 01:20:18  danbri
+added a link to morten&apos;s xslt rdfs viewer.
+
+Revision 1.10  2003/01/11 18:56:49  danbri
+Removed datatype range from lat and long properties, since they would
+have required each occurance of the property to mention the datatype.
+
+Revision 1.9  2003/01/11 11:41:31  danbri
+Another typo; repaired rdfs:Property to rdf:Property x4
+
+Revision 1.8  2003/01/11 11:05:02  danbri
+Added an rdfs:range for each lat/long/alt property,
+http://www.w3.org/2001/XMLSchema#float
+
+Revision 1.7  2003/01/10 20:25:16  danbri
+Longer rdfs:comment for Point, trying to be Earth-centric and neutral about
+coordinate system(s) at the same time. Feedback welcomed.
+
+Revision 1.6  2003/01/10 20:18:30  danbri
+Added CVS log comments into the RDF/XML as an rdfs:comment property of the
+vocabulary. Note that this is not common practice (but seems both harmless
+and potentially useful).
+
+
+revision 1.5
+date: 2003/01/10 20:14:31;  author: danbri;  state: Exp;  lines: +16 -5
+Updated schema:
+Added a dc:date, added url for more info. Changed the rdfs:label of the
+namespace from gp to geo. Added a class Point, set as the rdfs:domain of
+each property. Added XML comment on the lat_long property suggesting that
+we might not need it (based on #rdfig commentary from implementors).
+
+revision 1.4
+date: 2003/01/10 20:01:07;  author: danbri;  state: Exp;  lines: +6 -5
+Fixed typo; several rdfs:about attributes are now rdf:about. Thanks to MortenF in
+#rdfig for catching this error.
+
+revision 1.3
+date: 2003/01/10 11:59:03;  author: danbri;  state: Exp;  lines: +4 -3
+fixed buglet in vocab, added more wgs links
+
+revision 1.2
+date: 2003/01/10 11:01:11;  author: danbri;  state: Exp;  lines: +4 -4
+Removed alt from the as-a-flat-string property, and switched from
+space separated to comma separated.
+
+revision 1.1
+date: 2003/01/10 10:53:23;  author: danbri;  state: Exp;
+basic geo vocab
+
+</rdfs:comment>
+        <dc:description>A vocabulary for representing latitude, longitude and 
+ altitude information in the WGS84 geodetic reference datum. 
+ Version $Id: wgs84_pos.rdf,v 1.22 2009/04/20 15:00:30 timbl Exp $. See http://www.w3.org/2003/01/geo/ for more details.</dc:description>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#AdaptationService"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#DeadaptationService"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#SwitchingService"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#BidirectionalLink"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#BidirectionalPort"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#LinkGroup"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#PortGroup"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Topology"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Group"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Link"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Node"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Port"/>
+            <rdf:Description rdf:about="http://ivi.fnwi.uva.nl/sne/indl/nml/2014/10#Service"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
